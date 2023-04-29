@@ -1,5 +1,8 @@
 <template>
 	<view>
+		<view class="search-box">
+			<my-search @click="gotoSearch"></my-search>
+		</view>
 		<view class="scroll-view-container">
 			<!-- 左侧滚动视图区域 -->
 			<scroll-view scroll-y class="left-scroll-view" :style="{height:wh+'px'}">
@@ -73,6 +76,12 @@
 				uni.navigateTo({
 					url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id
 				})
+			},
+			// 路由跳转到搜索页面
+			gotoSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
 			}
 		}
 	}
@@ -139,5 +148,11 @@
 				}
 			}
 		}
+	}
+
+	.search-box {
+		position: sticky;
+		top: 0;
+		z-index: 999;
 	}
 </style>
